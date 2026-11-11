@@ -1,1 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+:root {
+  --vidhaan-obsidian: #121212;
+  --vidhaan-ivory: #F9F9F8;
+  --vidhaan-gold: #D4AF37;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--vidhaan-obsidian);
+  color: var(--vidhaan-ivory);
+}
+
+body {
+  background-color: var(--vidhaan-obsidian);
+  color: var(--vidhaan-ivory);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Premium Text Selection */
+::selection {
+  background-color: var(--vidhaan-gold);
+  color: var(--vidhaan-obsidian);
+}
+
+/* Regal Scrollbar */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--vidhaan-obsidian);
+}
+::-webkit-scrollbar-thumb {
+  background: #2A2A2A;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vidhaan-gold);
+}
+
+/* GSAP/Lenis Smooth Scroll Utilities */
+html.lenis, html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
