@@ -1,28 +1,34 @@
-
 "use client";
 
 import { useEffect } from "react";
 import Lenis from "lenis";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
+import Ethos from "@/components/sections/Ethos";
+import Services from "@/components/sections/Services";
 import Leadership from "@/components/sections/Leadership";
+import Contact from "@/components/sections/Contact";
+import Footer from "@/components/layout/Footer";
 
 export default function HomePage() {
   useEffect(() => {
+    const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
+    if (mq.matches) return;
+
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.15,
       smoothWheel: true,
     });
 
-    let animationFrameId: number;
+    let rafId: number;
     function raf(time: number) {
       lenis.raf(time);
-      animationFrameId = requestAnimationFrame(raf);
+      rafId = requestAnimationFrame(raf);
     }
-    animationFrameId = requestAnimationFrame(raf);
+    rafId = requestAnimationFrame(raf);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      cancelAnimationFrame(rafId);
       lenis.destroy();
     };
   }, []);
@@ -31,7 +37,11 @@ export default function HomePage() {
     <>
       <Navbar />
       <Hero />
+      <Ethos />
+      <Services />
       <Leadership />
+      <Contact />
+      <Footer />
     </>
   );
 }
